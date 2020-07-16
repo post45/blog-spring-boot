@@ -50,8 +50,9 @@ public class User {
         @DateTimeFormat(pattern = "dd/MM/yyyy")
         private Date createDate;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JsonIgnore
+        //@ManyToOne(fetch = FetchType.LAZY)
+        //@JsonIgnore
+        @OneToMany(mappedBy = "user")
         private List<BlogPost> blogPosts = new ArrayList<>();
 
         @PostPersist

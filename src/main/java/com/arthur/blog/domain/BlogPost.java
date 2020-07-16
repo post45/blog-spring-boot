@@ -30,14 +30,23 @@ public class BlogPost {
     @Size(min = 2, max = 20)
     private String title;
 
-    //@ManyToOne(fetch = FetchType.EAGER)
-    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER,
-            mappedBy = "user", orphanRemoval = true)
-    //@JoinColumn(name = "post_id")
-    //private List<BlogPost> blogPosts = new ArrayList<>();
+
+//    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
+
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REFRESH, orphanRemoval = true)
+    private List<BlogPost> blogPosts = new ArrayList<>();
+
     private User createdBy;
 
     private Date createdDate;
+//    @ManyToOne
+//    @JoinColumn(name = "user", nullable = false)
+//    @NotNull
+//    private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private BlogPost blogPost;
 
     @PostPersist
     private void setCreatedDate() {

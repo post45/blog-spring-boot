@@ -1,0 +1,10 @@
+[INFO][13:05:33][1]: ********************************
+[INFO][13:05:33][1]: Native library search paths: 
+[INFO][13:05:33][1]: /Users/arthurnabiullin/.config/PVS-Studio-Java/7.08.39365
+[INFO][13:05:33][1]: .
+[INFO][13:05:33][1]: /Users/arthurnabiullin/.config/PVS-Studio-Java/7.08.39365/..
+[INFO][13:05:33][1]: /Users/arthurnabiullin/.config/PVS-Studio-Java/7.08.39365/../..
+[INFO][13:05:33][1]: /Users/arthurnabiullin/.config/PVS-Studio-Java/7.08.39365/../../build
+[INFO][13:05:33][1]: Additional path: native/mac
+[INFO][13:05:33][1]: Native library found: /Users/arthurnabiullin/.config/PVS-Studio-Java/7.08.39365/native/mac/libanalysis-core.dylib
+[INFO][13:05:33][1]: ********************************
