@@ -31,22 +31,17 @@ public class BlogPost {
     private String title;
 
 
-//    @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "user", orphanRemoval = true)
-
-
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REFRESH, orphanRemoval = true)
+    @OneToMany(mappedBy = "posts", cascade = CascadeType.REFRESH, orphanRemoval = true)
     private List<BlogPost> blogPosts = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "posts")
+    private User user;
 
     private User createdBy;
 
     private Date createdDate;
-//    @ManyToOne
-//    @JoinColumn(name = "user", nullable = false)
-//    @NotNull
-//    private User user;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private BlogPost blogPost;
+
 
     @PostPersist
     private void setCreatedDate() {
