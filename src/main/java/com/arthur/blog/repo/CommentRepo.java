@@ -12,7 +12,7 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
     Comment save(Comment comment);
 
-    Comment getById(long id);
+    Comment getById(long commentId);
     Comment getByTitle(String title);
 
 //    Comment getById(Long commentId);

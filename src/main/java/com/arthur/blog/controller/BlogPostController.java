@@ -40,8 +40,8 @@ public class BlogPostController {
     public void delete(@RequestParam int id) {
         blogPostService.deletePostByID(id);
     }
-    // get all blogPOst for USER
-    @RequestMapping(method = RequestMethod.GET, path = "/user-posts")
+    // get all blogPost for USER
+    @RequestMapping( path = "/user-posts", method = RequestMethod.GET)
     public ResponseEntity<?> userPosts(@RequestParam int id) {
         return new ResponseEntity<>(blogPostService.getBlogPostList(id), HttpStatus.OK);
     }

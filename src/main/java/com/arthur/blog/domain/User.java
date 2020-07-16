@@ -34,7 +34,7 @@ public class User {
         private String lastName;
 
         @NotNull(message = "Email is required")
-        @Size(min = 2, max = 255)
+        @Size(min = 5, max = 255)
         private String email;
 
         @NotNull
