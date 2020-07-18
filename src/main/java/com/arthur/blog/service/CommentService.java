@@ -22,12 +22,11 @@ public class CommentService {
         commentRepo.save(comment);
     }
 
-    public Comment getCommentByID(int id) {
-        return commentRepo.getById((long) id);
+    public Comment getCommentByID(long commentId) {
+        return commentRepo.getByBlogPostId(commentId);
     }
 
     public void deletePostByID(int id) {
         blogPostRepo.deleteById((long) id);
     }
-
 }

@@ -12,11 +12,7 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
     Comment save(Comment comment);
 
-    Comment getById(long commentId);
-    Comment getByTitle(String title);
-
-//    Comment getById(Long commentId);
-//    Comment getByTitle(String title);
+    Comment getByBlogPostId(long commentId);
 
     List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
 

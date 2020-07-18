@@ -20,9 +20,9 @@ public class CommentController {
     private CommentService commentService;
 
     @RequestMapping(path = "/comment", method = RequestMethod.POST)
-    public ResponseEntity<?>createComment(@RequestBody @Valid Comment comment){
+    public String createComment(@Valid Comment comment){
         commentService.save(comment);
-        return new ResponseEntity<Comment>(comment, HttpStatus.OK);
+        return "redirect:/post/" + comment.getBlogPost().getId();
     }
 
     @RequestMapping(path = "/comment", method = RequestMethod.GET)

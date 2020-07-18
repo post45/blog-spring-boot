@@ -9,6 +9,7 @@ import javax.security.auth.Refreshable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -37,6 +38,10 @@ public class BlogPost {
     @ManyToOne
     @JoinColumn(name = "posts")
     private User user;
+
+
+    @OneToMany(mappedBy = "posts", cascade = CascadeType.REMOVE)
+    private Collection<Comment> comments;
 
     private User createdBy;
 

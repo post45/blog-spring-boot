@@ -1,5 +1,0 @@
-Error: License was not entered. Please enter a valid PVS-Studio license or request a trial license at https://www.viva64.com/en/pvs-studio-download/#trial_form
-com.pvsstudio.PvsStudioEmptyLicenseException: License was not entered. Please enter a valid PVS-Studio license or request a trial license at https://www.viva64.com/en/pvs-studio-download/#trial_form
-	at com.pvsstudio.Main.checkLicense(Main.java:208)
-	at com.pvsstudio.Main.main(Main.java:430)
-Analysis finished in 00:00:00.731.
