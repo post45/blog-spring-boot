@@ -31,19 +31,15 @@ public class BlogPost {
     @Size(min = 2, max = 20)
     private String title;
 
-
-    @OneToMany(mappedBy = "posts", cascade = CascadeType.REFRESH, orphanRemoval = true)
-    private List<BlogPost> blogPosts = new ArrayList<>();
-
     @ManyToOne
     @JoinColumn(name = "posts")
     private User user;
 
 
-    @OneToMany(mappedBy = "posts", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "blogPost", cascade = CascadeType.REMOVE)
     private Collection<Comment> comments;
 
-    private User createdBy;
+    private long createdBy;
 
     private Date createdDate;
 

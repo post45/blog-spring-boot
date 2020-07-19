@@ -14,7 +14,7 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
     Comment getByBlogPostId(long commentId);
 
-    List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
+   // List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
 
 
 }

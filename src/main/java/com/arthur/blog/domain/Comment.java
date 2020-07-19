@@ -20,7 +20,7 @@ public class Comment {
     @NotEmpty(message = "*Please write something")
     private String body;
 
-    private User createdBy;
+    private int createdBy;
 
     private Date createdDate;
 
