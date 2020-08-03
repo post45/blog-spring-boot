@@ -18,16 +18,17 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(path = "api/user")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST, path = "/register")
+    @RequestMapping( path = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> register(@RequestBody @Valid User user){
         userService.save(user);
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/login")
+    @RequestMapping(path = "/login",method = RequestMethod.POST)
     public ResponseEntity<?>login(@RequestBody @Valid LoginForm loginForm){
         User user  = userService.login(loginForm);
         return new ResponseEntity<User>(user,HttpStatus.OK);

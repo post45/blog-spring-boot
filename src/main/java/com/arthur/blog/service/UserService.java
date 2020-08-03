@@ -14,7 +14,11 @@ public class UserService {
     @Autowired
     private UserRepo userRepo;
 
+
     public void save(User user){
+        //has to be unique user
+        user.setEmail(user.getEmail());
+
         validatePassword(user.getPassword());
         if (userRepo.getByEmail(user.getEmail())!=null)
             return;

@@ -45,5 +45,6 @@ public class BlogPostController {
     public ResponseEntity<?> userPosts(@RequestParam int id) {
         return new ResponseEntity<>(blogPostService.getBlogPostList(id), HttpStatus.OK);
     }
+
 }
 

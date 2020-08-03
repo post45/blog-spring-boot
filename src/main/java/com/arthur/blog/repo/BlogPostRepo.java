@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface BlogPostRepo extends CrudRepository<BlogPost, Long> {
-    BlogPost getById(Long blogPostId);
 
+    BlogPost getById(Long blogPostId);
     List<BlogPost> getAllByCreatedBy(long createdBy);
 }

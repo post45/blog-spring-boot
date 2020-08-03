@@ -1,11 +1,14 @@
 package com.arthur.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 //import com.memorynotfound.spring.security.constraint.ValidPassword;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -22,19 +25,20 @@ public class User {
 
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private long id;
 
         @NotNull(message = "First Name is required")
         @Size(min = 2, max = 255)
         private String firstName;
 
-        @NotNull(message = "Last name is required")
+        @NotBlank(message = "Last name is required")
         @Size(min = 2, max = 255)
         private String lastName;
 
+        @Email
         @NotNull(message = "Email is required")
-        @Size(min = 5, max = 255)
+        @Column(unique = true)
         private String email;
 
         @NotNull
@@ -47,15 +51,25 @@ public class User {
         @Transient
         private String confirmPassword;
 
-        @DateTimeFormat(pattern = "dd/MM/yyyy")
+        @JsonFormat(pattern = "yyyy-mm-dd")
+        @Column(updatable = false)
         private Date createDate;
+
+        @JsonFormat(pattern = "yyyy-mm-dd")
+        private Date updateDate;
 
         @OneToMany(mappedBy = "user")
         private List<BlogPost> blogPosts = new ArrayList<>();
 
-        @PostPersist
-        private void setCreatedDate() {
-            createDate = new Date();
+
+
+        @PrePersist
+        protected void onCreate(){
+                this.createDate = new Date();
+        }
+        @PreUpdate
+        protected void onUpdate(){
+                this.updateDate = new Date();
         }
 
 }

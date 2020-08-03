@@ -31,6 +31,7 @@ public class BlogPostService {
     public List<BlogPost> getBlogPostList(User user ){
        return blogPostRepo.getAllByCreatedBy( user.getId());
     }
+
     public List<BlogPost> getBlogPostList(int userID){
         User user = userService.getUser(userID);
         return getBlogPostList(user);
