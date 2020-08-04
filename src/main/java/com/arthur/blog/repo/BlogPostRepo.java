@@ -1,7 +1,6 @@
 package com.arthur.blog.repo;
 
 import com.arthur.blog.domain.BlogPost;
-import com.arthur.blog.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

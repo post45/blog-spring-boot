@@ -25,7 +25,7 @@ public class User {
 
 
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.AUTO)
         private long id;
 
         @NotNull(message = "First Name is required")
@@ -45,7 +45,6 @@ public class User {
         private boolean emailVerified;
 
         @NotNull(message = "Password is required")
-        @Size(min = 4, max = 300)
         private String password;
 
         @Transient
