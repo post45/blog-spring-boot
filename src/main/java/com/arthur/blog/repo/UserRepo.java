@@ -13,5 +13,6 @@ public interface UserRepo extends CrudRepository <User,Long> {
     User getById(Long id);
     User getByEmail(String email);
 
-  //  List<User> getAllById (long users);
+
+
 }

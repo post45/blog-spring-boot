@@ -7,6 +7,8 @@ import com.arthur.blog.utils.SpecialChars;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class UserService {
@@ -45,6 +47,23 @@ public class UserService {
     public User getUser(int id){
         return userRepo.getById((long)id);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //    private  void validatePassword(String password){

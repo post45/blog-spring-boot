@@ -12,8 +12,6 @@ import java.time.Instant;
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class RefreshToken {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
