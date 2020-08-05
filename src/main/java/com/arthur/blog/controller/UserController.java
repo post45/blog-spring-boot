@@ -1,20 +1,16 @@
 package com.arthur.blog.controller;
 
 import com.arthur.blog.domain.LoginForm;
-import com.arthur.blog.domain.RefreshToken;
 import com.arthur.blog.domain.User;
 import com.arthur.blog.dto.RefreshTokenRequest;
 import com.arthur.blog.repo.UserRepo;
 import com.arthur.blog.service.MapValidationErrorService;
-import com.arthur.blog.service.RefreshTokenService;
 import com.arthur.blog.service.UserService;
 import com.arthur.blog.validator.UserValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
