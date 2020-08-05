@@ -88,7 +88,12 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>5.4.0-SNAPSHOT</version>
 		</dependency>
-		<!--unknown-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+        <!--unknown-->
     </dependencies>
 		<!---->
 

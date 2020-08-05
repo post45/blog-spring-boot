@@ -1,9 +1,12 @@
 package com.arthur.blog.controller;
 
 import com.arthur.blog.domain.LoginForm;
+import com.arthur.blog.domain.RefreshToken;
 import com.arthur.blog.domain.User;
+import com.arthur.blog.dto.RefreshTokenRequest;
 import com.arthur.blog.repo.UserRepo;
 import com.arthur.blog.service.MapValidationErrorService;
+import com.arthur.blog.service.RefreshTokenService;
 import com.arthur.blog.service.UserService;
 import com.arthur.blog.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +26,14 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
     @Autowired
     private UserRepo userRepo;
-
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
-
     @Autowired
     private UserValidator userValidator;
+    @Autowired
+    private RefreshTokenService refreshTokenService;
 
     @RequestMapping( path = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> register(@Valid @RequestBody User user, BindingResult result){
@@ -54,11 +56,10 @@ public class UserController {
     }
 
 
-//    @RequestMapping(path = "/all", method = RequestMethod.GET)
-//    public ResponseEntity<?>allUsers(@RequestParam int id){
-//        return new ResponseEntity<>(userService.getUser(id),HttpStatus.OK);
-//    }
 
-    @RequestMapping(path = "logout", method = RequestMethod.POST)
-    public ResponseEntity<?>logout(@RequestBody )
+    @RequestMapping(path = "/logout", method = RequestMethod.GET)
+    public ResponseEntity<?>logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest){
+        refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
+        return new  ResponseEntity<String>(HttpStatus.OK);
+    }
 }
