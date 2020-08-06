@@ -48,6 +48,18 @@ public class UserService {
         return userRepo.getById((long)id);
     }
 
+    //get all users
+    public List <User> getAllByIdNotNull() {
+        return userRepo.getAllByIdNotNull();
+    }
+
+
+
+
+//    public List<User> getUserList(int user){
+//        return userRepo.getAllUsers(user);
+//    }
+
 
 
 

@@ -2,12 +2,10 @@ package com.arthur.blog.controller;
 
 import com.arthur.blog.domain.LoginForm;
 import com.arthur.blog.domain.User;
-import com.arthur.blog.dto.RefreshTokenRequest;
 import com.arthur.blog.repo.UserRepo;
 import com.arthur.blog.service.MapValidationErrorService;
 import com.arthur.blog.service.UserService;
 import com.arthur.blog.validator.UserValidator;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +14,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/user")
-@AllArgsConstructor
 public class UserController {
 
     @Autowired
@@ -30,8 +28,7 @@ public class UserController {
     private MapValidationErrorService mapValidationErrorService;
     @Autowired
     private UserValidator userValidator;
-    @Autowired
-    private RefreshTokenService refreshTokenService;
+
 
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public ResponseEntity<?> register(@Valid @RequestBody User user, BindingResult result) {
@@ -57,7 +54,40 @@ public class UserController {
     public String logout(ModelMap model) {
         return "logout";
     }
-//
+
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public ResponseEntity<List<User>>getAllByIdNotNull(){
+        return new ResponseEntity<>(userService.getAllByIdNotNull(),HttpStatus.OK);
+    }
+
+}
+
+
+
+//@RequestMapping(value = "/all", method = RequestMethod.GET)
+//    public ResponseEntity<?> allUsers(@RequestParam int id) {
+//        return new ResponseEntity<>(userService.getUserList(id),HttpStatus.OK);
+//    }
+
+//    @GetMapping
+//    public ResponseEntity<List<Student>> findAll() {
+//        return ResponseEntity.ok(StudentServiceImpl.findAll());
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    @RequestMapping(path = "/logout", method = RequestMethod.GET)
 //    public ResponseEntity<?>logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest){
 //        refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
@@ -65,7 +95,6 @@ public class UserController {
 //    }
 
 
-}
 
 
 //    @RequestMapping("/login")

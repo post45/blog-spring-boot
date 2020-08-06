@@ -1,10 +1,8 @@
 package com.arthur.blog.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-//import com.memorynotfound.spring.security.constraint.ValidPassword;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -22,8 +20,6 @@ public class User {
 
    // @FieldMatch(first = "password", second = "confirmPassword", message = "The password fields must match")
   //  public class PasswordResetDto {
-
-
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         private long id;
@@ -59,7 +55,6 @@ public class User {
 
         @OneToMany(mappedBy = "user")
         private List<BlogPost> blogPosts = new ArrayList<>();
-
 
 
         @PrePersist
