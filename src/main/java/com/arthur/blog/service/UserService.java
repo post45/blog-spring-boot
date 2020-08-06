@@ -53,6 +53,11 @@ public class UserService {
         return userRepo.getAllByIdNotNull();
     }
 
+    //delete user by id
+    public void deleteUserByID(int id){
+        userRepo.deleteById((long)id);
+    }
+
 
 
 

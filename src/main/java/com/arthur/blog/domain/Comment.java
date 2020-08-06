@@ -31,12 +31,12 @@ public class Comment {
     private Date updateDate;
 
     @ManyToOne
-    //@JoinColumn(name = "post_id", referencedColumnName = "post_id", nullable = false)
+   // @JoinColumn(name = "posts", referencedColumnName = "posts", nullable = false)
     @NotNull
     private BlogPost blogPost;
 
     @ManyToOne
-    //@JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    //@JoinColumn(name = "users", referencedColumnName = "users", nullable = false)
     @NotNull
     private User user;
 

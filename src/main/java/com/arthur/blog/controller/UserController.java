@@ -60,6 +60,11 @@ public class UserController {
     public ResponseEntity<List<User>>getAllByIdNotNull(){
         return new ResponseEntity<>(userService.getAllByIdNotNull(),HttpStatus.OK);
     }
+//http://localhost:8080/api/user/delete/?id=7
+    @RequestMapping (value = "/delete", method = RequestMethod.DELETE)
+    public void delete(@RequestParam int id) {
+        userService.deleteUserByID(id);
+    }
 
 }
 

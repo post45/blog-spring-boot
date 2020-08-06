@@ -22,7 +22,7 @@ public class BlogPost {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
@@ -33,8 +33,8 @@ public class BlogPost {
     @Size(min = 2, max = 20)
     private String title;
 
-    @ManyToOne
-    @JoinColumn(name = "posts")
+    @ManyToOne(fetch = FetchType.LAZY)
+    //@JoinColumn(name = "users", referencedColumnName = "users")
     private User user;
 
     @CreatedBy

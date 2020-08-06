@@ -29,6 +29,11 @@ public class BlogPostController {
         return new ResponseEntity<BlogPost> (blogPost, HttpStatus.OK);
     }
 
+
+
+
+
+
     //api/posts/get?blogPostId=10
     @RequestMapping (value = "/post", method = RequestMethod.GET)
     public ResponseEntity<BlogPost> getPost(@RequestParam  int  blogPostId) {
