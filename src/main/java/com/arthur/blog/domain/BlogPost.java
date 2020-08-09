@@ -46,8 +46,8 @@ public class BlogPost {
     @JsonFormat(pattern = "yyyy-mm-dd")
     private Date updateDate;
 
-    @OneToMany(mappedBy = "blogPost", cascade = CascadeType.REMOVE)
-    private Collection<Comment> comments;
+    @OneToMany(mappedBy = "blogPost", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 
 
     @PrePersist

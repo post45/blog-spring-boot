@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/posts")
+@RequestMapping(path = "api/post")
 public class BlogPostController {
     //CRUD
     // C -create - POST
@@ -23,7 +23,7 @@ public class BlogPostController {
     @Autowired
     private BlogPostService blogPostService;
 
-    @RequestMapping (path ="/post", method = RequestMethod.POST)
+    @RequestMapping (path ="/create_post", method = RequestMethod.POST)
      public ResponseEntity<BlogPost> createPost(@RequestBody @Valid BlogPost blogPost ){
         blogPostService.save(blogPost);
         return new ResponseEntity<BlogPost> (blogPost, HttpStatus.OK);
@@ -35,13 +35,13 @@ public class BlogPostController {
 
 
     //api/posts/get?blogPostId=10
-    @RequestMapping (value = "/post", method = RequestMethod.GET)
+    @RequestMapping (value = "/get_post", method = RequestMethod.GET)
     public ResponseEntity<BlogPost> getPost(@RequestParam  int  blogPostId) {
       BlogPost blogPost = blogPostService.getPostByID(blogPostId);
       return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
     }
     //api/posts/delete/10
-    @RequestMapping (value = "/post", method = RequestMethod.DELETE)
+    @RequestMapping (value = "/delete_post", method = RequestMethod.DELETE)
     public void delete(@RequestParam int id) {
         blogPostService.deletePostByID(id);
     }

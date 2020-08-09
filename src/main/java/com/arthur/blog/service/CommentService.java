@@ -9,6 +9,8 @@ import com.arthur.blog.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentService {
 
@@ -20,6 +22,14 @@ public class CommentService {
 
     @Autowired
     private BlogPostService  blogPostService;
+
+    @Autowired
+    private BlogPostRepo blogPostRepo;
+
+    @Autowired
+    private UserRepo userRepo;
+
+
 
     public void save(Comment comment, int userID, int blogPostID) {
         User user = userService.getUser(userID);
@@ -35,5 +45,38 @@ public class CommentService {
 
     public void deletePostByID(int id) {
         commentRepo.deleteById((long) id);
+    }
+
+//    public List<CommentsDto> getAllCommentsForPost(Long postId) {
+//        Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId.toString()));
+//        return commentRepository.findByPost(post);
+//
+//    }
+//      public List<BlogPost> getBlogPostList(User user ){
+//       return blogPostRepo.getAllByCreatedBy(user.getId());
+//    }
+//
+//    public List<BlogPost> getBlogPostList(int userID){
+//        User user = userService.getUser(userID);
+//        return getBlogPostList(user);
+
+
+//0.getAllCommentsForPost
+    public List<Comment> findByBlogPost(Long blogPostId) {
+        blogPostRepo.findById(blogPostId);
+        return commentRepo.findByBlogPost(blogPostId);
+    }
+
+
+    //1. getByBlogPost
+//    public List<Comment> getByBlogPost(BlogPost blogPostId){
+//    commentRepo.getByBlogPost(blogPostId);
+//      return getByBlogPost(blogPostId);
+//    }
+
+    //2. getAllByUser
+    public List<Comment>getAllByUser(int userID){
+        userRepo.getAllByUser(userID);
+        return  commentRepo.getAllByUser(userID);
     }
 }

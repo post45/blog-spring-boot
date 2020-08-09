@@ -56,6 +56,9 @@ public class User {
         @OneToMany(mappedBy = "user")
         private List<BlogPost> blogPosts = new ArrayList<>();
 
+        @OneToMany
+        private List<Comment>comments = new ArrayList<>();
+
 
         @PrePersist
         protected void onCreate(){

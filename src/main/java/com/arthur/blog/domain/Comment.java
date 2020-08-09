@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedBy;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -18,7 +19,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotEmpty(message = "*Please write something")
+    @NotEmpty
+    @Size(min = 10, message = "Comment body must be minimum 10 characters")
     private String body;
 
     @CreatedBy
@@ -32,12 +34,10 @@ public class Comment {
 
     @ManyToOne
    // @JoinColumn(name = "posts", referencedColumnName = "posts", nullable = false)
-    @NotNull
     private BlogPost blogPost;
 
     @ManyToOne
     //@JoinColumn(name = "users", referencedColumnName = "users", nullable = false)
-    @NotNull
     private User user;
 
 

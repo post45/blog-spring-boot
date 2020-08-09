@@ -1,5 +1,6 @@
 package com.arthur.blog.repo;
 
+import com.arthur.blog.domain.BlogPost;
 import com.arthur.blog.domain.Comment;
 import com.arthur.blog.domain.User;
 import org.springframework.data.repository.CrudRepository;
@@ -14,7 +15,19 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
     Comment getByBlogPostId(long commentId);
 
-   // List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
+    //new find by post
+    //List<Comment> getByBlogPost(BlogPost blogPost);
+
+    List<Comment> findByBlogPost(Long blogPostId);
+
+    //find All by User
+    //List<Comment> getAllByUser(User user);
+    List<Comment> getAllByUser(int userID);
+
+//    List<Comment> findByBlogPost(BlogPost blogPost);
 
 
+
+
+    // List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
 }
