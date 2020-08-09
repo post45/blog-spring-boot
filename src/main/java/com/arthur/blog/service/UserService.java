@@ -61,28 +61,6 @@ public class UserService {
 
 
 
-//    public List<User> getUserList(int user){
-//        return userRepo.getAllUsers(user);
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //    private  void validatePassword(String password){
 //        boolean contains = false;
 //        for(String specialChar:  SpecialChars.getSpecialCharsStatic()) {

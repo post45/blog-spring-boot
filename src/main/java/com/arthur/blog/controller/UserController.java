@@ -45,9 +45,9 @@ public class UserController {
 
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public ResponseEntity<?>login(@RequestBody @Valid LoginForm loginForm){
-        User user  = userService.login(loginForm);
-        return new ResponseEntity<User>(user,HttpStatus.OK);
+    public ResponseEntity<?> login(@RequestBody @Valid LoginForm loginForm) {
+        User user = userService.login(loginForm);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -57,11 +57,12 @@ public class UserController {
 
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public ResponseEntity<List<User>>getAllByIdNotNull(){
-        return new ResponseEntity<>(userService.getAllByIdNotNull(),HttpStatus.OK);
+    public ResponseEntity<List<User>> getAllByIdNotNull() {
+        return new ResponseEntity<>(userService.getAllByIdNotNull(), HttpStatus.OK);
     }
-//http://localhost:8080/api/user/delete/?id=7
-    @RequestMapping (value = "/delete", method = RequestMethod.DELETE)
+
+    //http://localhost:8080/api/user/delete/?id=7
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void delete(@RequestParam int id) {
         userService.deleteUserByID(id);
     }
@@ -70,15 +71,6 @@ public class UserController {
 
 
 
-//@RequestMapping(value = "/all", method = RequestMethod.GET)
-//    public ResponseEntity<?> allUsers(@RequestParam int id) {
-//        return new ResponseEntity<>(userService.getUserList(id),HttpStatus.OK);
-//    }
-
-//    @GetMapping
-//    public ResponseEntity<List<Student>> findAll() {
-//        return ResponseEntity.ok(StudentServiceImpl.findAll());
-//    }
 
 
 
@@ -91,26 +83,3 @@ public class UserController {
 
 
 
-
-
-//    @RequestMapping(path = "/logout", method = RequestMethod.GET)
-//    public ResponseEntity<?>logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest){
-//        refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
-//        return ResponseEntity.status(HttpStatus.OK).body("Refresh Token Deleted Successfully!!");
-//    }
-
-
-
-
-//    @RequestMapping("/login")
-//    public String login(@RequestParam(value = "error", required = false) String error, @RequestParam(value = "logout", required = false) String logout, Model model) {
-//
-//        if (error != null) {
-//            model.addAttribute("error", "Wrong username or password!");
-//        }
-//        if (logout != null) {
-//            model.addAttribute("msg", "You have successfully logged out!");
-//        }
-//        return "login";
-//    }
-//}

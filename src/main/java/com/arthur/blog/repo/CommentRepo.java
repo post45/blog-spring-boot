@@ -1,8 +1,6 @@
 package com.arthur.blog.repo;
 
-import com.arthur.blog.domain.BlogPost;
 import com.arthur.blog.domain.Comment;
-import com.arthur.blog.domain.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -29,5 +27,5 @@ public interface CommentRepo extends CrudRepository<Comment, Long> {
 
 
 
-    // List<Comment> getAllByCreatedByAndOrderOrderByCreatedDate(User user);
+
 }

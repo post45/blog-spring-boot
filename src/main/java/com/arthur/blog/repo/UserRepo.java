@@ -8,9 +8,10 @@ import java.util.List;
 
 
 @Repository
-public interface UserRepo extends CrudRepository <User,Long> {
+public interface UserRepo extends CrudRepository<User, Long> {
 
     User getById(Long id);
+
     User getByEmail(String email);
 
     List<User> getAllByIdNotNull();

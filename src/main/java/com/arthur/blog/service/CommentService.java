@@ -18,18 +18,16 @@ public class CommentService {
     private CommentRepo commentRepo;
 
     @Autowired
-    private  UserService userService;
+    private UserService userService;
 
     @Autowired
-    private BlogPostService  blogPostService;
+    private BlogPostService blogPostService;
 
     @Autowired
     private BlogPostRepo blogPostRepo;
 
     @Autowired
     private UserRepo userRepo;
-
-
 
     public void save(Comment comment, int userID, int blogPostID) {
         User user = userService.getUser(userID);
@@ -47,26 +45,12 @@ public class CommentService {
         commentRepo.deleteById((long) id);
     }
 
-//    public List<CommentsDto> getAllCommentsForPost(Long postId) {
-//        Post post = postRepository.findById(postId).orElseThrow(() -> new PostNotFoundException(postId.toString()));
-//        return commentRepository.findByPost(post);
-//
-//    }
-//      public List<BlogPost> getBlogPostList(User user ){
-//       return blogPostRepo.getAllByCreatedBy(user.getId());
-//    }
-//
-//    public List<BlogPost> getBlogPostList(int userID){
-//        User user = userService.getUser(userID);
-//        return getBlogPostList(user);
 
-
-//0.getAllCommentsForPost
+    //  getAllCommentsForPost
     public List<Comment> findByBlogPost(Long blogPostId) {
         blogPostRepo.findById(blogPostId);
         return commentRepo.findByBlogPost(blogPostId);
     }
-
 
     //1. getByBlogPost
 //    public List<Comment> getByBlogPost(BlogPost blogPostId){
@@ -75,8 +59,8 @@ public class CommentService {
 //    }
 
     //2. getAllByUser
-    public List<Comment>getAllByUser(int userID){
+    public List<Comment> getAllByUser(int userID) {
         userRepo.getAllByUser(userID);
-        return  commentRepo.getAllByUser(userID);
+        return commentRepo.getAllByUser(userID);
     }
 }
