@@ -52,7 +52,7 @@ public class UserController {
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(ModelMap model) {
-        return "logout";
+        return "You are successful logout";
     }
 
 
@@ -65,6 +65,8 @@ public class UserController {
     @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
     public void delete(@RequestParam int id) {
         userService.deleteUserByID(id);
+        System.out.println("Successful deleted");
+
     }
 
 }

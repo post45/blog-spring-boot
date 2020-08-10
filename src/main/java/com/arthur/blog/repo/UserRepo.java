@@ -16,7 +16,7 @@ public interface UserRepo extends CrudRepository<User, Long> {
 
     List<User> getAllByIdNotNull();
 
-    List<User> getAllByUser(int userID);
+   // List<User> getAllByUser(int userID);
 
     // Iterable<User> findAllById(Iterable<Long> id);
 

@@ -60,7 +60,7 @@ public class CommentService {
 
     //2. getAllByUser
     public List<Comment> getAllByUser(int userID) {
-        userRepo.getAllByUser(userID);
+        commentRepo.getAllByUser(userID);
         return commentRepo.getAllByUser(userID);
     }
 }
