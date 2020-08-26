@@ -20,8 +20,8 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
-                <a className="nav-link" href="/dashboard">
-                  News
+                <a className="nav-link" href="/AddPost">
+                  Add Post
                 </a>
               </li>
             </ul>
