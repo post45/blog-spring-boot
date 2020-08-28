@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./header/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddPost from "./app/AddPost";
+import Register from "./userManagement/Register";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Header />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/addPost" component={AddPost} />
+
+        <Route exact path="register" component={Register} />
       </div>
     </Router>
   );
