@@ -10,9 +10,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route exact path="/addPost" component={AddPost} />
         <Header />
         <Dashboard />
+        <Route exact path="/addPost" component={AddPost} />
       </div>
     </Router>
   );
