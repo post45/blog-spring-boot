@@ -3,14 +3,15 @@ import React, { Component } from "react";
 class AddPost extends Component {
   render() {
     return (
-      <div className="col-md-5">
-        <div className="form-area">
-          <form role="form">
+      <div className="col-md-8 ">
+        <div className="form-area ">
+          <form role="form ">
+            <h2 className="text-left">Create Post form</h2>
             <br styles="clear:both" />
-            <div className="form-group">
+            <div className="form-group ">
               <input
                 type="text"
-                className="form-control"
+                className="form-control "
                 id="title"
                 name="title"
                 placeholder="Title"
@@ -18,13 +19,13 @@ class AddPost extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group ">
               <textarea
                 className="form-control"
                 type="textarea"
-                id="subject"
-                placeholder="Subject"
-                maxlength="140"
+                id="body"
+                placeholder="Body"
+                maxlength="1400"
                 rows="7"
               ></textarea>
             </div>

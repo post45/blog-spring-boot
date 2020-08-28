@@ -26,12 +26,13 @@ public class BlogPost {
     private Long id;
 
     @NotNull
+    @Size(min = 2, max = 20)
+    private String title;
+
+    @NotNull
     @Size(min = 50, max = 1000)
     private String body;
 
-    @NotNull
-    @Size(min = 2, max = 20)
-    private String title;
 
     @ManyToOne(fetch = FetchType.LAZY)
     //@JoinColumn(name = "users", referencedColumnName = "users")
