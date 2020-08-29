@@ -111,7 +111,7 @@ class AddPost extends Component {
               name="submit"
               className="btn btn-success pull-right"
             >
-              Add Post
+              Post
             </button>
           </form>
         </div>
