@@ -6,6 +6,7 @@ import Header from "./header/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import AddPost from "./app/AddPost";
 import Register from "./userManagement/Register";
+import Login from "./userManagement/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/addPost" component={AddPost} />
 
         <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
       </div>
     </Router>
   );
