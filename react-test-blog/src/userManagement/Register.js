@@ -1,22 +1,48 @@
 import React, { Component } from "react";
 
 class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    const newUser = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword,
+    };
+  }
+
   render() {
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
           <form role="form">
-            <h2 className="text-center mb-4">Sign Up Please</h2>
+            <h2 className="text-center mb-4">Sign Up </h2>
             {
               // firstName
             }
             <input
               type="firstName"
-              title="firstName"
-              id="firstName"
+              name="firstName"
               className="form-control form-control-lg"
               placeholder="First Name"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
             {
@@ -24,11 +50,12 @@ class Register extends Component {
             }
             <input
               type="lastName"
-              title="lastName"
-              id="lastName"
+              name="lastName"
               className="form-control form-control-lg"
               placeholder="Last Name"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
 
@@ -37,11 +64,12 @@ class Register extends Component {
             }
             <input
               type="email"
-              title="email"
-              id="emal"
+              name="emal"
               className="form-control form-control-lg"
               placeholder="Your email"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
             {
@@ -49,11 +77,12 @@ class Register extends Component {
             }
             <input
               type="password"
-              title="password"
-              id="password"
+              name="password"
               className="form-control form-control-lg"
               placeholder="Password"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
             {
@@ -61,35 +90,15 @@ class Register extends Component {
             }
             <input
               type="confirmPassword"
-              title="confirmPassword"
-              id="confirmPassword"
+              name="confirmPassword"
               className="form-control form-control-lg"
               placeholder="Confirm Password"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
-            {
-              // Date
-            }
-            <h6>Create Date</h6>
-            <div className="form-group">
-              <input
-                type="date"
-                className="form-control form-control-lg"
-                name="createDate"
-              />
-            </div>
-            <h6>Estimated Update Date</h6>
-            <div className="form-group">
-              <input
-                type="date"
-                className="form-control form-control-lg"
-                name="updateDate"
-              />
-            </div>
-            {
-              // Date
-            }
+
             <div className="text-center mt-4">
               <button name="submit" className="btn btn-success">
                 Register

@@ -1,6 +1,27 @@
 import React, { Component } from "react";
 
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+  onSubmit(e) {
+    e.preventDefault();
+    const LoginForm = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    this.props.login(LoginForm);
+  }
+
   render() {
     return (
       <div className="col-md-6 m-auto">
@@ -17,6 +38,8 @@ class Login extends Component {
               className="form-control form-control-lg"
               placeholder="Email"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <br />
             {
@@ -29,6 +52,8 @@ class Login extends Component {
               className="form-control form-control-lg"
               placeholder="Password"
               required
+              value={this.state.username}
+              onChange={this.onChange}
             />
             <div className="text-center mt-4">
               <button name="submit" className="btn btn-success">

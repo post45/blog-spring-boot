@@ -35,12 +35,12 @@ class AddPost extends Component {
       <div className="col-md-8 m-auto">
         <div className="form-area ">
           <form role="form ">
-            <h2 className="text-center">Create Post form</h2>
+            <h2 className="text-center">Create Post </h2>
             <br styles="clear:both" />
             <div className="form-group ">
               <input
                 type="text"
-                className="form-control "
+                className="form-control form-control-lg "
                 id="title"
                 name="title"
                 value={this.state.title}
@@ -71,7 +71,7 @@ class AddPost extends Component {
             <div className="form-group ">
               <input
                 type="text"
-                className="form-control "
+                className="form-control form-control-lg"
                 id="created By"
                 name="createdBy"
                 value={this.state.createdBy}
