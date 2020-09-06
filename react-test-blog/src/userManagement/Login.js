@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { login } from "../actions/userActions.js";
+import { connect } from "react-redux";
 
 class Login extends Component {
   constructor() {
@@ -26,19 +28,18 @@ class Login extends Component {
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
-          <form role="form">
+          <form onSubmit={this.onSubmit} role="form">
             <h2 className="text-center mb-4">Login </h2>
             {
               // email
             }
             <input
               type="email"
-              title="email"
-              id="email"
+              name="email"
               className="form-control form-control-lg"
               placeholder="Email"
               required
-              value={this.state.username}
+              value={this.state.email}
               onChange={this.onChange}
             />
             <br />
@@ -47,12 +48,11 @@ class Login extends Component {
             }
             <input
               type="password"
-              title="password"
-              id="password"
+              name="password"
               className="form-control form-control-lg"
               placeholder="Password"
               required
-              value={this.state.username}
+              value={this.state.password}
               onChange={this.onChange}
             />
             <div className="text-center mt-4">
@@ -66,4 +66,7 @@ class Login extends Component {
     );
   }
 }
-export default Login;
+const mapStateToProps = (state) => ({
+  errors: state.errors,
+});
+export default connect(mapStateToProps, { login })(Login);

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { register } from "../actions/userActions.js";
+import { connect } from "react-redux";
 
 class Register extends Component {
   constructor() {
@@ -18,19 +20,20 @@ class Register extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const newUser = {
+    const registerForm = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
     };
+    this.props.register(registerForm);
   }
 
   render() {
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
-          <form role="form">
+          <form onSubmite={this.onSubmit} role="form">
             <h2 className="text-center mb-4">Sign Up </h2>
             {
               // firstName
@@ -41,7 +44,7 @@ class Register extends Component {
               className="form-control form-control-lg"
               placeholder="First Name"
               required
-              value={this.state.username}
+              value={this.state.firstName}
               onChange={this.onChange}
             />
             <br />
@@ -54,7 +57,7 @@ class Register extends Component {
               className="form-control form-control-lg"
               placeholder="Last Name"
               required
-              value={this.state.username}
+              value={this.state.lastName}
               onChange={this.onChange}
             />
             <br />
@@ -68,7 +71,7 @@ class Register extends Component {
               className="form-control form-control-lg"
               placeholder="Your email"
               required
-              value={this.state.username}
+              value={this.state.emal}
               onChange={this.onChange}
             />
             <br />
@@ -81,7 +84,7 @@ class Register extends Component {
               className="form-control form-control-lg"
               placeholder="Password"
               required
-              value={this.state.username}
+              value={this.state.password}
               onChange={this.onChange}
             />
             <br />
@@ -94,7 +97,7 @@ class Register extends Component {
               className="form-control form-control-lg"
               placeholder="Confirm Password"
               required
-              value={this.state.username}
+              value={this.state.confirmPassword}
               onChange={this.onChange}
             />
             <br />
@@ -110,4 +113,7 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+const mapStateToProps = (state) => ({
+  errors: state.errors,
+});
+export default connect(mapStateToProps, { register })(Register);

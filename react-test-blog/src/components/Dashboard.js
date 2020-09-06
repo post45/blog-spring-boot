@@ -1,6 +1,11 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getPostsForUser } from "../actions/PostActions";
 
 class Dashboard extends Component {
+  componentDidMount() {
+    this.props.getPostsForUser(10);
+  }
   render() {
     return (
       <div className="posts">
@@ -19,4 +24,4 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+export default connect(null, { getPostsForUser })(Dashboard);
