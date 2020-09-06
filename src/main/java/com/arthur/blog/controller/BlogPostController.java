@@ -23,31 +23,26 @@ public class BlogPostController {
     @Autowired
     private BlogPostService blogPostService;
 
-    @RequestMapping (path ="/create_post", method = RequestMethod.POST)
+    @RequestMapping (path ="/create-post", method = RequestMethod.POST)
      public ResponseEntity<BlogPost> createPost(@RequestBody @Valid BlogPost blogPost ){
         blogPostService.save(blogPost);
         return new ResponseEntity<BlogPost> (blogPost, HttpStatus.OK);
     }
 
-
-
-
-
-
     //api/posts/get?blogPostId=10
-    @RequestMapping (value = "/get_post", method = RequestMethod.GET)
-    public ResponseEntity<BlogPost> getPost(@RequestParam  int  blogPostId) {
+    @RequestMapping (value = "/get-post/{blogPostId}", method = RequestMethod.GET)
+    public ResponseEntity<BlogPost> getPost(@PathVariable  int  blogPostId) {
       BlogPost blogPost = blogPostService.getPostByID(blogPostId);
       return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
     }
     //api/posts/delete/10
-    @RequestMapping (value = "/delete_post", method = RequestMethod.DELETE)
+    @RequestMapping (value = "/delete-post", method = RequestMethod.DELETE)
     public void delete(@RequestParam int id) {
         blogPostService.deletePostByID(id);
     }
     // get all blogPost for USER
-    @RequestMapping( path = "/user-posts", method = RequestMethod.GET)
-    public ResponseEntity<?> userPosts(@RequestParam int id) {
+    @RequestMapping( path = "/user-posts/{id}", method = RequestMethod.GET)
+    public ResponseEntity<?> userPosts(@PathVariable int id) {
         return new ResponseEntity<>(blogPostService.getBlogPostList(id), HttpStatus.OK);
     }
 

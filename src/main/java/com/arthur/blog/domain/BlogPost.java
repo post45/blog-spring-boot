@@ -33,13 +33,14 @@ public class BlogPost {
     @Size(min = 50, max = 1000)
     private String body;
 
+    @CreatedBy
+    private long createdBy;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "users", referencedColumnName = "users")
     private User user;
 
-    @CreatedBy
-    private long createdBy;
 
     @JsonFormat(pattern = "yyyy-mm-dd")
     @Column(updatable = false)
