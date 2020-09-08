@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getPostsForUser } from "../actions/userActions";
+import PropTypes from "prop-types";
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.getPostsForUser(10);
+    this.props.getPostsForUser();
   }
   render() {
+    const { blogPosts } = this.props.blogPost;
     return (
-      <div className="posts">
+      <div className="blogPost">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -24,4 +26,13 @@ class Dashboard extends Component {
     );
   }
 }
-export default connect(null, { getPostsForUser })(Dashboard);
+Dashboard.propTypes = {
+  blogPost: PropTypes.object.isRequired,
+  getPostsForUser: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  blogPost: state.blogPost,
+});
+
+export default connect(mapStateToProps, { getPostsForUser })(Dashboard);
