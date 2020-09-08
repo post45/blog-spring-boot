@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { getPostsForUser } from "../actions/userActions";
+import { connect } from "react-redux";
 
 class AddPost extends Component {
   constructor() {
     super();
-
     this.state = {
       title: "",
       body: "",
@@ -27,14 +28,17 @@ class AddPost extends Component {
       createDate: this.state.createDate,
       updateDate: this.state.updateDate,
     };
+
     console.log(AddPost);
+
+    this.props.getPostsForUser(AddPost);
   }
 
   render() {
     return (
       <div className="col-md-8 m-auto">
         <div className="form-area ">
-          <form role="form ">
+          <form onSubmite={this.onSubmit} role="form ">
             <h2 className="text-center">Create Post </h2>
             <br styles="clear:both" />
             <div className="form-group ">
@@ -119,4 +123,8 @@ class AddPost extends Component {
     );
   }
 }
-export default AddPost;
+const mapStateToProps = (state) => ({
+  errors: state.errors,
+});
+
+export default connect(mapStateToProps, { getPostsForUser })(AddPost);

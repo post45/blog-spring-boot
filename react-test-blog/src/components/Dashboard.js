@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPostsForUser } from "../actions/PostActions";
+import { getPostsForUser } from "../actions/userActions";
 
 class Dashboard extends Component {
   componentDidMount() {
