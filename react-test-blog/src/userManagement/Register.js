@@ -15,6 +15,11 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  componentDidMount() {
+    //if user is logged on then redirect
+    // this.props.history.push("/dashboard");
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -23,17 +28,18 @@ class Register extends Component {
     const registerForm = {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
+      email: this.state.email,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword,
     };
-    this.props.register(registerForm);
+    this.props.register(registerForm, this.props.history);
   }
 
   render() {
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
-          <form onSubmite={this.onSubmit} role="form">
+          <form onSubmit={this.onSubmit} role="form">
             <h2 className="text-center mb-4">Sign Up </h2>
             {
               // firstName
@@ -67,11 +73,11 @@ class Register extends Component {
             }
             <input
               type="email"
-              name="emal"
+              name="email"
               className="form-control form-control-lg"
               placeholder="Your email"
               required
-              value={this.state.emal}
+              value={this.state.email}
               onChange={this.onChange}
             />
             <br />

@@ -34,7 +34,7 @@ public class UserService {
        if(user == null) {
            throw new IllegalArgumentException(loginErrorMessage);
        }
-       if (password.equals(password)){
+       if (password.equals(user.getPassword())){
            return user;
        }
        else throw new IllegalArgumentException(loginErrorMessage);
