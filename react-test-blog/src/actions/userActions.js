@@ -6,7 +6,7 @@ export const login = (loginForm, history) => async (dispatch) => {
     const response = await axios.post("/api/user/login", loginForm);
     history.push("/dashboard");
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 };
 

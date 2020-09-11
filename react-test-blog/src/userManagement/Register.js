@@ -98,7 +98,7 @@ class Register extends Component {
               // confirm pass
             }
             <input
-              type="confirmPassword"
+              type="password"
               name="confirmPassword"
               className="form-control form-control-lg"
               placeholder="Confirm Password"
