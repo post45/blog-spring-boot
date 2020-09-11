@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { getPostsForUser } from "../actions/userActions";
 import { connect } from "react-redux";
+import { createPost } from "../actions/userActions";
 
 class AddPost extends Component {
   constructor() {
@@ -12,16 +14,21 @@ class AddPost extends Component {
       createDate: "",
       updateDate: "",
     };
-
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.errors) {
+  //     this.setState({ errors: nextProps.errors });
+  //   }
+  // }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
   onSubmit(e) {
     e.preventDefault();
-    const AddPost = {
+    const blogPost = {
       title: this.state.title,
       body: this.state.body,
       createdBy: this.state.createdBy,
@@ -30,20 +37,20 @@ class AddPost extends Component {
     };
 
     console.log(AddPost);
-
-    this.props.getPostsForUser(AddPost);
+    this.props.createPost(blogPost, this.props.history);
+    // this.props.getPostsForUser(AddPost, this.props.history);
   }
 
   render() {
     return (
       <div className="col-md-8 m-auto">
         <div className="form-area ">
-          <form onSubmite={this.onSubmit} role="form ">
+          <form onSubmit={this.onSubmit} role="form ">
             <h2 className="text-center">Create Post </h2>
             <br styles="clear:both" />
             <div className="form-group ">
               <input
-                type="text"
+                type="title"
                 className="form-control form-control-lg "
                 id="title"
                 name="title"
@@ -57,12 +64,12 @@ class AddPost extends Component {
             <div className="form-group ">
               <textarea
                 className="form-control"
-                type="textarea"
-                id="body"
+                type="body"
                 name="body"
                 placeholder="Body"
                 maxlength="1400"
                 rows="7"
+                required
                 value={this.state.body}
                 onChange={this.onChange}
               ></textarea>
@@ -74,9 +81,8 @@ class AddPost extends Component {
 
             <div className="form-group ">
               <input
-                type="text"
+                type="createdBy"
                 className="form-control form-control-lg"
-                id="created By"
                 name="createdBy"
                 value={this.state.createdBy}
                 onChange={this.onChange}
@@ -108,23 +114,24 @@ class AddPost extends Component {
                 onChange={this.onChange}
               />
             </div>
-
-            <button
-              type="button"
-              id="submit"
-              name="submit"
-              className="btn btn-success pull-right"
-            >
-              Post
-            </button>
+            <div className="text-center mt-4">
+              <button name="submite" className="btn btn-success">
+                Post
+              </button>
+            </div>
           </form>
         </div>
       </div>
     );
   }
 }
+
+AddPost.propTypes = {
+  createPost: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+};
 const mapStateToProps = (state) => ({
   errors: state.errors,
 });
 
-export default connect(mapStateToProps, { getPostsForUser })(AddPost);
+export default connect(mapStateToProps, { createPost })(AddPost);

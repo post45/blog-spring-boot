@@ -13,6 +13,10 @@ class Login extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  // componentDidMount() {
+  //   this.props.history.push("/dashboard");
+  // }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -22,7 +26,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     };
-    this.props.login(LoginForm);
+    this.props.login(LoginForm, this.props.history);
   }
 
   render() {
@@ -61,6 +65,13 @@ class Login extends Component {
                 Login
               </button>
             </div>
+            {
+              // <div className="text-center mt-4">
+              //   <button name="submit" className="btn btn-primary">
+              //     Logout
+              //   </button>
+              // </div>
+            }
           </form>
         </div>
       </div>

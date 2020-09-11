@@ -88,7 +88,7 @@ class Register extends Component {
               type="password"
               name="password"
               className="form-control form-control-lg"
-              placeholder="Password"
+              placeholder="Password must be at list 6 char"
               required
               value={this.state.password}
               onChange={this.onChange}

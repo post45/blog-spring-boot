@@ -1,8 +1,18 @@
 import axios from "axios";
-import { GET_POSTS } from "./types";
+import { GET_ERRORS, GET_POSTS } from "./types";
 
-export const login = (loginForm) => async (dispatch) => {
-  const response = await axios.post("/api/user/login", loginForm);
+export const login = (loginForm, history) => async (dispatch) => {
+  try {
+    const response = await axios.post("/api/user/login", loginForm);
+    history.push("/dashboard");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const logout = () => (dispatch) => {
+  axios.get("api/user/logout");
+  console.log(logout);
 };
 
 export const register = (registerForm, history) => async (dispatch) => {
