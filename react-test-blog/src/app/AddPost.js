@@ -13,6 +13,7 @@ class AddPost extends Component {
       createdBy: "",
       createDate: "",
       updateDate: "",
+      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -28,7 +29,7 @@ class AddPost extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const blogPost = {
+    const newPost = {
       title: this.state.title,
       body: this.state.body,
       createdBy: this.state.createdBy,
@@ -36,8 +37,8 @@ class AddPost extends Component {
       updateDate: this.state.updateDate,
     };
 
-    console.log(AddPost);
-    this.props.createPost(blogPost, this.props.history);
+    // console.log(AddPost);
+    this.props.createPost(newPost, this.props.history);
     // this.props.getPostsForUser(AddPost, this.props.history);
   }
 

@@ -6,21 +6,38 @@ export const login = (loginForm, history) => async (dispatch) => {
     const response = await axios.post("/api/user/login", loginForm);
     history.push("/dashboard");
   } catch (err) {
-    // console.log(err);
+    console.log(err);
   }
 };
 
 export const logout = () => (dispatch) => {
   axios.get("api/user/logout");
-  console.log(logout);
+  alert(" SignOut Successfully", "success");
+  return this.props.history.push("/login");
 };
-
 export const register = (registerForm, history) => async (dispatch) => {
   try {
-    const response = await axios.post("/api/user/register", registerForm);
+    const res = await axios.post("/api/user/register", registerForm);
+    console.log(res);
     history.push("/login");
   } catch (err) {
     console.log(err);
+  }
+};
+
+{
+  // createPost
+}
+export const createPost = (blogPost, history) => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/post/create-post", blogPost);
+    console.log(res);
+    history.push("/dashboard");
+  } catch (err) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
   }
 };
 
@@ -31,13 +48,4 @@ export const getPostsForUser = (id) => async (dispatch) => {
     type: GET_POSTS,
     payload: res.data,
   });
-};
-
-{
-  // createPost
-}
-export const createPost = (blogPost, history) => async (dispatch) => {
-  const res = await axios.post("/api/post/create-post" + blogPost);
-  console.log(res);
-  history.push("/dashboard");
 };
