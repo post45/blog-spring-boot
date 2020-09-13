@@ -8,7 +8,7 @@ class Dashboard extends Component {
     this.props.getPostsForUser();
   }
   render() {
-    const { blogPosts } = this.props.blogPost;
+    const { blogPost } = this.props.blogPost;
     return (
       <div className="blogPost">
         <div className="container">

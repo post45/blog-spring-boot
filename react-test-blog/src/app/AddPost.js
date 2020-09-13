@@ -37,9 +37,7 @@ class AddPost extends Component {
       updateDate: this.state.updateDate,
     };
 
-    // console.log(AddPost);
     this.props.createPost(newPost, this.props.history);
-    // this.props.getPostsForUser(AddPost, this.props.history);
   }
 
   render() {

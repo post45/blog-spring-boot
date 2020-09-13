@@ -30,11 +30,16 @@ public class BlogPost {
     private String title;
 
     @NotNull
-    @Size(min = 50, max = 1000)
+    @Size(min = 5, max = 1000)
     private String body;
 
-    @CreatedBy
-    private long createdBy;
+
+    @NotNull
+    private Long createdBy;
+    //wrapper class
+    //INteger int
+    //Double double
+    //Long long
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -60,5 +65,6 @@ public class BlogPost {
     protected void onUpdate(){
         this.updateDate = new Date();
     }
+
 
 }

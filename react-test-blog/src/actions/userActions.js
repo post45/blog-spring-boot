@@ -25,14 +25,14 @@ export const register = (registerForm, history) => async (dispatch) => {
   }
 };
 
-{
-  // createPost
-}
 export const createPost = (blogPost, history) => async (dispatch) => {
   try {
     const res = await axios.post("/api/post/create-post", blogPost);
-    console.log(res);
     history.push("/dashboard");
+    dispatch({
+      type: GET_ERRORS,
+      payload: {},
+    });
   } catch (err) {
     dispatch({
       type: GET_ERRORS,

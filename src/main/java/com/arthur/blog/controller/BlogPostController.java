@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class BlogPostController {
     private BlogPostService blogPostService;
 
     @RequestMapping (path ="/create-post", method = RequestMethod.POST)
-     public ResponseEntity<BlogPost> createPost(@RequestBody @Valid BlogPost blogPost ){
+    public ResponseEntity<BlogPost> createPost(@RequestBody @Valid BlogPost blogPost) {
         blogPostService.save(blogPost);
         return new ResponseEntity<BlogPost> (blogPost, HttpStatus.OK);
     }
