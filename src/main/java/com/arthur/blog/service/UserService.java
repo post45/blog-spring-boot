@@ -5,6 +5,7 @@ import com.arthur.blog.domain.User;
 import com.arthur.blog.repo.UserRepo;
 import com.arthur.blog.utils.SpecialChars;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +17,16 @@ public class UserService {
     private final String loginErrorMessage = "Username or password incorrect";
 
     @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
     private UserRepo userRepo;
 
     //has to be unique user
     public void save(User user){
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+
         user.setEmail(user.getEmail());
         user.setPassword(user.getPassword());
 //        validatePassword(user.getPassword());
