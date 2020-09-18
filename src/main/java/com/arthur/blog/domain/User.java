@@ -1,6 +1,7 @@
 package com.arthur.blog.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,7 +36,7 @@ public class User implements UserDetails {
         @Size(min = 2, max = 255)
         private String lastName;
 
-        @Email
+        @Email(message = "UserName needs to be an email")
         @NotNull(message = "Email is required")
         @Column(unique = true)
         private String email;
@@ -78,31 +79,37 @@ public class User implements UserDetails {
 
 
      @Override
+     @JsonIgnore
      public Collection<? extends GrantedAuthority> getAuthorities() {
           return null;
      }
 
      @Override
+     @JsonIgnore
      public String getUsername() {
           return null;
      }
 
      @Override
+     @JsonIgnore
      public boolean isAccountNonExpired() {
           return true;
      }
 
      @Override
+     @JsonIgnore
      public boolean isAccountNonLocked() {
           return true;
      }
 
      @Override
+     @JsonIgnore
      public boolean isCredentialsNonExpired() {
           return true;
      }
 
      @Override
+     @JsonIgnore
      public boolean isEnabled() {
           return true;
      }
