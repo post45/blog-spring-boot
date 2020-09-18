@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { getPostsForUser } from "../actions/userActions";
 import { connect } from "react-redux";
 import { createPost } from "../actions/userActions";
 

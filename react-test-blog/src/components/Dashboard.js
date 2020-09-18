@@ -8,7 +8,7 @@ class Dashboard extends Component {
     this.props.getPostsForUser();
   }
   render() {
-    const { blogPost } = this.props.blogPost;
+    const { blogPosts } = this.props.blogPost;
     return (
       <div className="blogPost">
         <div className="container">
@@ -16,6 +16,9 @@ class Dashboard extends Component {
             <div className="col-md-12">
               <h3 className=" text-center">Blog</h3>
               <br />
+
+              <hr />
+
               {
                 //
               }

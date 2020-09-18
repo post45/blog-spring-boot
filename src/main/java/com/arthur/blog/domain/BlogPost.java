@@ -35,7 +35,7 @@ public class BlogPost {
 
 
     @NotNull
-    private Long createdBy;
+    private long createdBy;
     //wrapper class
     //INteger int
     //Double double
