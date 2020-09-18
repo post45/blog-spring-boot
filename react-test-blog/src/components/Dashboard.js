@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPostsForUser } from "../actions/userActions";
+import { getPostsForUser } from "../actions/UserActions";
 import PropTypes from "prop-types";
+import PostItem from "../app/PostItem";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class Dashboard extends Component {
               <br />
 
               <hr />
-
+              <PostItem />
               {
                 //
               }

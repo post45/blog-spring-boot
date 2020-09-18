@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { register } from "../actions/userActions.js";
+import { register } from "../actions/UserActions.js";
 import { connect } from "react-redux";
 
 class Register extends Component {

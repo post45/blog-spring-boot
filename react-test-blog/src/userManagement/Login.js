@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { login } from "../actions/userActions.js";
+import { login } from "../actions/UserActions.js";
 import { connect } from "react-redux";
 import Dashboard from "../components/Dashboard.js";
 
