@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="caae8e82-73c5-441c-b066-f75cfea9f09b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/arthur/blog/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arthur/blog/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,39 +27,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="345">
+              <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1852#1853#0" expanded="true" />
                 <element signature="e#1902#1903#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2203#2204#0" expanded="true" />
-                <element signature="e#2233#2234#0" expanded="true" />
-                <element signature="e#2284#2285#0" expanded="true" />
-                <element signature="e#2314#2315#0" expanded="true" />
-                <element signature="e#2374#2375#0" expanded="true" />
-                <element signature="e#2405#2406#0" expanded="true" />
-                <element signature="e#2464#2465#0" expanded="true" />
-                <element signature="e#2495#2496#0" expanded="true" />
-                <element signature="e#2559#2560#0" expanded="true" />
-                <element signature="e#2590#2591#0" expanded="true" />
-                <element signature="e#2640#2641#0" expanded="true" />
-                <element signature="e#2671#2672#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,47 +58,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConst.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/LoginForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/payload/JWTLoginSuccessResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+            <state relative-caret-position="269">
+              <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
               <folding>
-                <element signature="e#296#297#0" expanded="true" />
-                <element signature="e#326#327#0" expanded="true" />
-                <element signature="e#373#374#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-                <element signature="e#513#514#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConfig.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/JwtTokenProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+            <state relative-caret-position="210">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/BlogPostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/security/JwtAuthenticationEntryPoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/BlogApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/exceptions/UserNameAlreadyExistsResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/exceptions/UsernameAlreadyExistsException.java" />
@@ -240,6 +189,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/payload/JWTLoginSuccessResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/service/CustomUserDetailsService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/security/JwtTokenProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -401,7 +352,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600565042980" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1600621632694" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -442,18 +393,18 @@
       <workItem from="1594403463902" duration="2878000" />
       <workItem from="1594487020886" duration="3994000" />
       <workItem from="1594909078451" duration="19305000" />
-      <workItem from="1596398663194" duration="94880000" />
+      <workItem from="1596398663194" duration="98280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121488000" />
+    <option name="totallyTimeSpent" value="124888000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="726" y="0" width="714" height="900" extended-state="0" />
+    <frame x="789" y="0" width="651" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2872024" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11001642" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -463,7 +414,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287483" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46024096" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46024096" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5110193" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -493,7 +444,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/registration.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/main.css" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.0-M1/spring-beans-5.3.0-M1.jar!/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.class">
@@ -758,28 +708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2203#2204#0" expanded="true" />
-            <element signature="e#2233#2234#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2314#2315#0" expanded="true" />
-            <element signature="e#2374#2375#0" expanded="true" />
-            <element signature="e#2405#2406#0" expanded="true" />
-            <element signature="e#2464#2465#0" expanded="true" />
-            <element signature="e#2495#2496#0" expanded="true" />
-            <element signature="e#2559#2560#0" expanded="true" />
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2640#2641#0" expanded="true" />
-            <element signature="e#2671#2672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/exceptions/UserNameAlreadyExistsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -883,63 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1852#1853#0" expanded="true" />
-            <element signature="e#1902#1903#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1869#1870#0" expanded="true" />
-            <element signature="e#1954#1955#0" expanded="true" />
-            <element signature="e#2070#2071#0" expanded="true" />
-            <element signature="e#2182#2183#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/LoginForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/payload/JWTLoginSuccessResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding>
-            <element signature="e#296#297#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#373#374#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#471#472#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/validator/UserValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
@@ -985,10 +856,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="40" column="40" selection-start-line="40" selection-start-column="40" selection-end-line="40" selection-end-column="40" />
+        <state relative-caret-position="423">
+          <caret line="52" selection-start-line="52" selection-end-line="53" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="38" column="55" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/payload/JWTLoginSuccessResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding>
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#513#514#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/domain/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/SecurityConst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="59" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1869#1870#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#2070#2071#0" expanded="true" />
+            <element signature="e#2182#2183#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/security/JwtTokenProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/arthur/blog/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1852#1853#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
           </folding>
         </state>
       </provider>
