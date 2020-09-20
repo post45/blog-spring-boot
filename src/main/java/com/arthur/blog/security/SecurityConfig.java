@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.beans.Beans;
 
@@ -24,17 +25,21 @@ import java.beans.Beans;
         prePostEnabled = true
 )
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-@Autowired
-private CustomUserDetailsService userDetailsService;
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtAuthenticationEntryPoint unauthorizedHandler;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
-  private JwtAuthenticationEntryPoint unauthorizedHandler;
+
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter(){return  new JwtAuthenticationFilter();}
 
     @Override
     protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
     @Override
@@ -66,5 +71,8 @@ authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEnco
                 ).permitAll()
                 .antMatchers("/api/user/**").permitAll()
                 .anyRequest().authenticated();
+
+        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
     }
 }
