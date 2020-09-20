@@ -3,6 +3,7 @@ package com.arthur.blog.service;
 import com.arthur.blog.domain.BlogPost;
 import com.arthur.blog.domain.User;
 import com.arthur.blog.repo.BlogPostRepo;
+import com.arthur.blog.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,10 @@ public class BlogPostService {
     @Autowired
     private UserService userService;
 
-    public void save( BlogPost blogPost){
+    @Autowired
+    private UserRepo userRepo;
+
+    public void save( BlogPost blogPost, String email){
         blogPostRepo.save(blogPost);
     }
 

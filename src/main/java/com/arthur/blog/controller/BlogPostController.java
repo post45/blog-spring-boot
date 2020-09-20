@@ -3,46 +3,54 @@ package com.arthur.blog.controller;
 import com.arthur.blog.domain.BlogPost;
 import com.arthur.blog.domain.User;
 import com.arthur.blog.service.BlogPostService;
+import com.arthur.blog.service.MapValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
+
 //locqlhost8080/api/post
 @RestController
 @RequestMapping(path = "api/post")
+@CrossOrigin
 public class BlogPostController {
-    //CRUD
-    // C -create - POST
-    // R - read - GET -- illegal
-    // U - update - POST/ PATCH
-    // D - delete - DELETE
 
     @Autowired
     private BlogPostService blogPostService;
 
-    @RequestMapping (path ="/create-post", method = RequestMethod.POST)
-    public ResponseEntity<BlogPost> createPost(@RequestBody @Valid BlogPost blogPost) {
-        blogPostService.save(blogPost);
-        return new ResponseEntity<BlogPost> (blogPost, HttpStatus.OK);
+    @Autowired
+    private MapValidationErrorService mapValidationErrorService;
+
+    @RequestMapping(path = "/create-post", method = RequestMethod.POST)
+    public ResponseEntity<?> createPost(@RequestBody @Valid BlogPost blogPost, BindingResult result, Principal principal) {
+
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if (errorMap != null) return errorMap;
+
+        blogPostService.save(blogPost, principal.getName());
+        return new ResponseEntity<BlogPost>(blogPost, HttpStatus.CREATED);
     }
 
     //api/posts/get?blogPostId=10
-    @RequestMapping (value = "/get-post/{blogPostId}", method = RequestMethod.GET)
-    public ResponseEntity<BlogPost> getPost(@PathVariable  int  blogPostId) {
-      BlogPost blogPost = blogPostService.getPostByID(blogPostId);
-      return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
+    @RequestMapping(value = "/get-post/{blogPostId}", method = RequestMethod.GET)
+    public ResponseEntity<BlogPost> getPost(@PathVariable int blogPostId) {
+        BlogPost blogPost = blogPostService.getPostByID(blogPostId);
+        return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
     }
+
     //api/posts/delete/10
-    @RequestMapping (value = "/delete-post", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete-post", method = RequestMethod.DELETE)
     public void delete(@RequestParam int id) {
         blogPostService.deletePostByID(id);
     }
+
     // get all blogPost for USER
-    @RequestMapping( path = "/user-posts/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/user-posts/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> userPosts(@PathVariable int id) {
         return new ResponseEntity<>(blogPostService.getBlogPostList(id), HttpStatus.OK);
     }

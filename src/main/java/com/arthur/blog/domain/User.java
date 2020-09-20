@@ -57,6 +57,8 @@ public class User implements UserDetails {
         @JsonFormat(pattern = "yyyy-mm-dd")
         private Date updateDate;
 
+
+        //
         @OneToMany(mappedBy = "user")
         private List<BlogPost> blogPosts = new ArrayList<>();
 
