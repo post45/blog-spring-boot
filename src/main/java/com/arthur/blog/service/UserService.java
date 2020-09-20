@@ -31,6 +31,7 @@ public class UserService {
 
             user.setEmail(user.getEmail());
             user.setPassword(user.getPassword());
+            user.setConfirmPassword("");// will not show confirm pass
 //        validatePassword(user.getPassword());
 //            if (userRepo.getByEmail(user.getEmail()) != null)
 //                return;
