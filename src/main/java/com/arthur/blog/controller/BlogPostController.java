@@ -38,7 +38,7 @@ public class BlogPostController {
 
     //api/posts/get?blogPostId=10
     @RequestMapping(value = "/get-post/{blogPostId}", method = RequestMethod.GET)
-    public ResponseEntity<BlogPost> getPost(@PathVariable int blogPostId) {
+    public ResponseEntity<BlogPost> getPost(@PathVariable int blogPostId, Principal principal) {
         BlogPost blogPost = blogPostService.getPostByID(blogPostId);
         return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
     }
