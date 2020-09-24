@@ -18,13 +18,16 @@ class Register extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  // componentDidMount(nextProps) {
-  //   if (nextProps.errors) {
-  //     this.setState({ errors: nextProps.errors });
-  //   }
-  //   //if user is logged on then redirect
-  //   // this.props.history.push("/dashboard");
-  // }
+  componentDidMount() {
+    if (this.props.security.validToken) {
+      this.props.history.push("/dashboard");
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -118,8 +121,10 @@ class Register extends Component {
 Register.propTypes = {
   register: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  security: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   errors: state.errors,
+  security: state.security,
 });
 export default connect(mapStateToProps, { register })(Register);
