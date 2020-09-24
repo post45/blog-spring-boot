@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../actions/UserActions.js";
 import { connect } from "react-redux";
-import Dashboard from "../components/Dashboard.js";
+import PropTypes from "prop-types";
 
 class Login extends Component {
   constructor() {
@@ -9,17 +9,27 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.history.push("/dashboard");
-  // }
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  componentDidMount() {
+    if (this.props.security.validToken) {
+      this.props.history.push("/dashboard");
+    }
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.security.validToken) {
+      this.props.history.push("/dashboard");
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
     const LoginForm = {
@@ -28,8 +38,12 @@ class Login extends Component {
     };
     this.props.login(LoginForm, this.props.history);
   }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
   render() {
+    const { errors } = this.state;
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
@@ -39,7 +53,7 @@ class Login extends Component {
               // email
             }
             <input
-              type="email"
+              type="text"
               name="email"
               className="form-control form-control-lg"
               placeholder="Email"
@@ -65,13 +79,6 @@ class Login extends Component {
                 Login
               </button>
             </div>
-            {
-              // <div className="text-center mt-4">
-              //   <button name="submit" className="btn btn-primary">
-              //     Logout
-              //   </button>
-              // </div>
-            }
           </form>
         </div>
       </div>
@@ -79,7 +86,14 @@ class Login extends Component {
   }
 }
 
+Login.propTypes = {
+  login: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  security: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = (state) => ({
+  security: state.security,
   errors: state.errors,
 });
 export default connect(mapStateToProps, { login })(Login);

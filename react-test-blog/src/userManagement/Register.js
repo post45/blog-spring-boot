@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { register } from "../actions/UserActions.js";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 
 class Register extends Component {
   constructor() {
@@ -11,14 +13,18 @@ class Register extends Component {
       email: "",
       password: "",
       confirmPassword: "",
+      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  componentDidMount() {
-    //if user is logged on then redirect
-    // this.props.history.push("/dashboard");
-  }
+  // componentDidMount(nextProps) {
+  //   if (nextProps.errors) {
+  //     this.setState({ errors: nextProps.errors });
+  //   }
+  //   //if user is logged on then redirect
+  //   // this.props.history.push("/dashboard");
+  // }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
@@ -36,14 +42,13 @@ class Register extends Component {
   }
 
   render() {
+    const { errors } = this.state;
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
           <form onSubmit={this.onSubmit} role="form">
             <h2 className="text-center mb-4">Sign Up </h2>
-            {
-              // firstName
-            }
+
             <input
               type="firstName"
               name="firstName"
@@ -54,9 +59,7 @@ class Register extends Component {
               onChange={this.onChange}
             />
             <br />
-            {
-              // lastName
-            }
+
             <input
               type="lastName"
               name="lastName"
@@ -68,9 +71,6 @@ class Register extends Component {
             />
             <br />
 
-            {
-              // email
-            }
             <input
               type="email"
               name="email"
@@ -81,9 +81,7 @@ class Register extends Component {
               onChange={this.onChange}
             />
             <br />
-            {
-              // pass
-            }
+
             <input
               type="password"
               name="password"
@@ -94,9 +92,7 @@ class Register extends Component {
               onChange={this.onChange}
             />
             <br />
-            {
-              // confirm pass
-            }
+
             <input
               type="password"
               name="confirmPassword"
@@ -119,6 +115,10 @@ class Register extends Component {
     );
   }
 }
+Register.propTypes = {
+  register: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+};
 const mapStateToProps = (state) => ({
   errors: state.errors,
 });

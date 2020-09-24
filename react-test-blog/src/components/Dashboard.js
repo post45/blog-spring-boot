@@ -19,8 +19,8 @@ class Dashboard extends Component {
               <br />
 
               <hr />
-              <PostItem />
               {
+                // <PostItem />
                 //
               }
             </div>
