@@ -25,7 +25,7 @@ public class BlogPostService {
         blogPostRepo.save(blogPost);
     }
 
-    public BlogPost getPostByID(int id){
+    public BlogPost getPostByID(int id, String email){
         return blogPostRepo.getById((long) id);
     }
     public void deletePostByID(int id){

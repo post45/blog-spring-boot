@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 import PostItem from "../app/PostItem";
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+  }
   componentDidMount() {
     this.props.getPostsForUser();
   }

@@ -31,15 +31,14 @@ export const login = (loginForm, history) => async (dispatch) => {
 };
 
 export const logout = () => (dispatch) => {
+  axios.get("api/user/logout");
   localStorage.removeItem("jwtToken");
   setJWTToken(false);
   dispatch({
     type: GET_ERRORS,
     payload: {},
   });
-  // axios.get("api/user/logout");
   // alert(" Sign Out Successfully", "success");
-  // return this.props.history.push("/login");
 };
 
 export const register = (registerForm, history) => async (dispatch) => {
@@ -75,8 +74,7 @@ export const createPost = (blogPost, history) => async (dispatch) => {
 };
 
 export const getPostsForUser = (id) => async (dispatch) => {
-  const res = await axios.get("/api/post/user-posts/" + id);
-  console.log(res);
+  const res = await axios.get("/api/post/user-posts/");
   dispatch({
     type: GET_POSTS,
     payload: res.data,

@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @RestController
 @RequestMapping(path = "api/comments")
@@ -18,8 +19,8 @@ public class CommentController {
 
 
     @RequestMapping(path = "/comment/{userID}/{blogPostID}", method = RequestMethod.POST)
-    public ResponseEntity createComment(@Valid Comment comment, @PathVariable int userID, @PathVariable int blogPostID) {
-        commentService.save(comment, userID, blogPostID);
+    public ResponseEntity createComment(@Valid Comment comment, @PathVariable int userID, @PathVariable int blogPostID,String email, Principal principal) {
+        commentService.save(comment, userID, blogPostID, email);
         return new ResponseEntity(comment, HttpStatus.OK);
     }
 

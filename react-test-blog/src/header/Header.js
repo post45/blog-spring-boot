@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Limk, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logout } from "../actions/UserActions";
 
 class Header extends Component {
   logout() {
     this.props.logout();
-    window.location.href = "/";
+    this.props.history.push("/login");
+    //window.location.href = "/";
   }
   render() {
     const { validToken, user } = this.props.security;
@@ -32,7 +33,7 @@ class Header extends Component {
           <li className="nav-item">
             <Link
               className="nav-link"
-              to="/logout"
+              to="logout"
               onClick={this.logout.bind(this)}
             >
               Logout
@@ -110,7 +111,7 @@ class Header extends Component {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="login">
+                <Link className="nav-link" to="logout">
                   Logout
                 </Link>
               </li>

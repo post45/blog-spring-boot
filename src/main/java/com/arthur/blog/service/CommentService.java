@@ -29,9 +29,9 @@ public class CommentService {
     @Autowired
     private UserRepo userRepo;
 
-    public void save(Comment comment, int userID, int blogPostID) {
+    public void save(Comment comment, int userID, int blogPostID, String email) {
         User user = userService.getUser(userID);
-        BlogPost blogPost = blogPostService.getPostByID(blogPostID);
+        BlogPost blogPost = blogPostService.getPostByID(blogPostID, email);
         comment.setUser(user);
         comment.setBlogPost(blogPost);
         commentRepo.save(comment);

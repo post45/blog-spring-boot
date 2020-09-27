@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { register } from "../actions/UserActions.js";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 
 class Register extends Component {
   constructor() {

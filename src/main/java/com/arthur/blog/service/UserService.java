@@ -70,6 +70,9 @@ public class UserService {
         userRepo.deleteById((long) id);
     }
 
+    public User getByEmail(String email){
+        return userRepo.getByEmail(email);
+    }
 
     //    private  void validatePassword(String password){
 //        boolean contains = false;

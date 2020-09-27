@@ -4,6 +4,7 @@ import com.arthur.blog.domain.BlogPost;
 import com.arthur.blog.domain.User;
 import com.arthur.blog.service.BlogPostService;
 import com.arthur.blog.service.MapValidationErrorService;
+import com.arthur.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,9 @@ public class BlogPostController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(path = "/create-post", method = RequestMethod.POST)
     public ResponseEntity<?> createPost(@RequestBody @Valid BlogPost blogPost, BindingResult result, Principal principal) {
 
@@ -39,7 +43,7 @@ public class BlogPostController {
     //api/posts/get?blogPostId=10
     @RequestMapping(value = "/get-post/{blogPostId}", method = RequestMethod.GET)
     public ResponseEntity<BlogPost> getPost(@PathVariable int blogPostId, Principal principal) {
-        BlogPost blogPost = blogPostService.getPostByID(blogPostId);
+        BlogPost blogPost = blogPostService.getPostByID(blogPostId, principal.getName());
         return new ResponseEntity<BlogPost>(blogPost, HttpStatus.OK);
     }
 
@@ -50,9 +54,10 @@ public class BlogPostController {
     }
 
     // get all blogPost for USER
-    @RequestMapping(path = "/user-posts/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> userPosts(@PathVariable int id) {
-        return new ResponseEntity<>(blogPostService.getBlogPostList(id), HttpStatus.OK);
+    @RequestMapping(path = "/user-posts", method = RequestMethod.GET)
+    public ResponseEntity<?> userPosts(Principal principal) {
+        User user = userService.getByEmail(principal.getName());
+        return new ResponseEntity<>(blogPostService.getBlogPostList(user), HttpStatus.OK);
     }
 
 }
