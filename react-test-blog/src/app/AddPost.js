@@ -113,7 +113,7 @@ class AddPost extends Component {
               />
             </div>
             <div className="text-center mt-4">
-              <button name="submite" className="btn btn-success">
+              <button name="submit" className="btn btn-success">
                 Post
               </button>
             </div>

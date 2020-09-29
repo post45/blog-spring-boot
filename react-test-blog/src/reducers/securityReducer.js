@@ -1,5 +1,4 @@
 import { SET_CURRENT_USER } from "../actions/types";
-import { findAllByTestId } from "@testing-library/react";
 
 const initialState = {
   user: {},

@@ -22,7 +22,7 @@ export const login = (loginForm, history) => async (dispatch) => {
 
     history.push("/dashboard");
   } catch (err) {
-    // console.log(err);
+    console.log(err);
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data,
@@ -74,7 +74,7 @@ export const createPost = (blogPost, history) => async (dispatch) => {
 };
 
 export const getPostsForUser = (id) => async (dispatch) => {
-  const res = await axios.get("/api/post/user-posts/");
+  const res = await axios.get("/api/post/user-posts");
   dispatch({
     type: GET_POSTS,
     payload: res.data,

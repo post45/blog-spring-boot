@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import postReducer from "./postReducer";
+import blogPostReducer from "./blogPostReducer";
 import errorReducer from "./errorReducer";
 import securityReducer from "./securityReducer";
 
 export default combineReducers({
   errors: errorReducer,
-  blogPost: postReducer,
+  blogPost: blogPostReducer,
   security: securityReducer,
 });

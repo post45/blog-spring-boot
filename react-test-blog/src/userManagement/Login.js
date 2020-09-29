@@ -9,7 +9,6 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
-      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -43,15 +42,12 @@ class Login extends Component {
   }
 
   render() {
-    const { errors } = this.state;
     return (
       <div className="col-md-6 m-auto">
         <div className="form-area ">
           <form onSubmit={this.onSubmit} role="form">
             <h2 className="text-center mb-4">Login </h2>
-            {
-              // email
-            }
+
             <input
               type="text"
               name="email"
@@ -62,9 +58,7 @@ class Login extends Component {
               onChange={this.onChange}
             />
             <br />
-            {
-              // pass
-            }
+
             <input
               type="password"
               name="password"

@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import PostItem from "../app/PostItem";
 
 class Dashboard extends Component {
-  constructor() {
-    super();
-  }
+  // constructor() {
+  //   super();
+  // }
   componentDidMount() {
     this.props.getPostsForUser();
   }
@@ -20,12 +20,11 @@ class Dashboard extends Component {
             <div className="col-md-12">
               <h3 className=" text-center">Blog</h3>
               <br />
-
               <hr />
-              {
-                // <PostItem />
-                //
-              }
+
+              {blogPosts.map((blogPost) => (
+                <PostItem key={blogPost.id} blogPost={blogPost} />
+              ))}
             </div>
           </div>
         </div>
